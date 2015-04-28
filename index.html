@@ -1,114 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='uTemp'>
-<head>
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>uTemp</title>
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-<!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+	<head>
+	  <!-- Basic Page Needs
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <meta charset="utf-8">
+	  <title>uTemp</title>
+	  <!-- Mobile Specific Metas
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!-- FONT
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<!-- CSS
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <link rel="stylesheet" href="css/normalize.css">
+	  <link rel="stylesheet" href="css/skeleton.css">
+	  <link rel="stylesheet" href="css/style.css">
+	  <!-- Favicon
+	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
 
-<!-- load angular and angular route via CDN -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
-  <!-- Firebase -->
-  <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
-  <!-- AngularFire -->
-  <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
-  <script src="app.js"></script>
+	<!-- load angular and angular route via CDN -->
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+	  <!-- Firebase -->
+	  <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+	  <!-- AngularFire -->
+	  <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+	  <script src="app.js"></script>
 
-</head>
+	</head>
 <body>
-
+<!-- shared html -->
 <header>
 		<div class="container header-container">
 			<div class="row">
 				<div class="u-full-width">
-					<h1>Giphy Roulette</h1>
+					<h1><a href='/'><!-- Giphy Roulette --></a></h1>
 				</div>
 			</div>
 		</div>
 </header>
-
-<nav class='container'>
-    <div class='u-pull-right'>
-        <a class='button'> login</a>
-    </div>
-</nav>
-
-
-
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="section main-line" ng-controller="mainCtrl">
-    <div class='container'>
-        <div class="row main-line">
-            <div class="u-full-width">
-                <!--  <h3> {{ nameToday }}</h3> -->
-                <h3 class='home-slogan'>All the excitement of slack /giphy, but with the ability to save links for later.</h3>
-            </div>
-        </div>
-    </div>
-
-
-
-
-		 <h4>Basic {{ test }} : // {{ date | date:'yyyy-MM-dd' }}</h4>
- 					{{ day }}
-		
-				<img ng-src ='{{ giph.data.images.fixed_height.url }}' />
-				<img ng-src='{{ cats }}' />
-				<img ng-src ='{{ giphy.data.images.fixed_height.url }}' />
-				<input type="text" ng-model='example.text' placeholder='type here'>
-		
-					{{weather[0].high}}
- 					
- 					{{ weatherHigh }}
-
- 					{{ getWeather }}
-
-http://media.giphy.com/media/wdh1SvEn0E06I/giphy.gif
-
- 					
-        
-      
-    </div>
-  </div>
-</div>
-
-<!--  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/#about">About</a></li>
-                    <li><a href="/#blog">blog</a></li>
-                </ul> -->
-
-
-
+				
 <!-- start of angular views -->
-<div class='container'>
-  <div ng-view></div>
-</div>
+<div ng-view></div>
+
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-</html>
-
-
-
-
 </body>
 </html>

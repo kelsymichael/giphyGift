@@ -1,19 +1,38 @@
-<h1 class='jumbotron'>Welcome</h1>
+<div class="container">
 
-<form ng-submit='addMessage()'>
-	<input type="text" ng-model='message'>
-	<input type="submit" value='AddMessage'>
-</form>
+<nav class='nav'>
+    <div class='u-pull-right'>
+        <a class='button' href='#/login'>login</a>
+    </div>
+</nav>
+
+<div class="container">
+<h1>Welcome</h1>
+<h4>Today is {{ day }} {{ date | date:'MMMM-dd-yyyy'}} </h4>
+
+  
+	<div class='container'>
+	    <div class="row">
+	        <div class="u-full-width">
+	            <!--  <h3> {{ nameToday }}</h3> -->
+	            <h3 class='home-slogan'>search giphy</h3>
+	            <h3>save the good ones</h3>
+	        </div>
+	    </div>
+	</div>		
+					
+	<p>test paragraph</p>
+	<!-- <img class='giphy' ng-src ='{{ giph.data.images.fixed_height.url }}' /> -->
 
 
-<h3>test for abv</h3>
-
-<div ng-repeat='beer in beers'>
-	<p>{{ beer.beers[0].abv }}</p>
+<div class="container">
+	<div class="row">		
+	<!-- <img ng-src='{{ cats }}' /> -->
+		<input class='u-full-width' type="text" ng-model='example.text' placeholder='type here'>
+	</div>		
 </div>
 
-
-<div ng-repeat='weather in weatherInfo'>
-	<h1> {{ weather[0].high }}</h1>
+</div>
+			http://media.giphy.com/media/wdh1SvEn0E06I/giphy.gif
 </div>
 

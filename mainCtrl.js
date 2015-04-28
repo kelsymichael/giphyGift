@@ -1,24 +1,3 @@
-var app = angular.module('uTemp', [ 'ngRoute', 'firebase']);
-
-app
-		.config(function($routeProvider) {
-			$routeProvider
-
-			 	.when('/', {
-	          templateUrl : 'pages/homeView.html',
-	          controller  : 'mainCtrl'
-	      })
-
-	      .when('/login', {
-	          templateUrl : 'pages/loginView.html',
-	          controller  : 'mainCtrl'
-	      })
-
-	      .otherwise({
-					redirectTo: '/'
-				});
-		});
-
 var app = angular.module('uTemp');
 
 app 

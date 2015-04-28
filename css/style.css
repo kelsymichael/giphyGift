@@ -1,13 +1,15 @@
 .header-container {
   text-align: center;
-  background: #5075c8;
 }
 .header-container a {
   margin-top: 15%;
+  text-decoration: none;
 }
-.main-line {
+.giphy {
   text-align: center;
-  background-img: url("images/ablue.jpg");
+}
+.light-font {
+  color: #5075c8;
 }
 @media (max-width: 550px) {
   .header-container a {
