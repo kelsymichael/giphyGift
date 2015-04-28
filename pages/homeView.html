@@ -1,0 +1,19 @@
+<h1 class='jumbotron'>Welcome</h1>
+
+<form ng-submit='addMessage()'>
+	<input type="text" ng-model='message'>
+	<input type="submit" value='AddMessage'>
+</form>
+
+
+<h3>test for abv</h3>
+
+<div ng-repeat='beer in beers'>
+	<p>{{ beer.beers[0].abv }}</p>
+</div>
+
+
+<div ng-repeat='weather in weatherInfo'>
+	<h1> {{ weather[0].high }}</h1>
+</div>
+

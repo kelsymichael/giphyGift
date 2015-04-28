@@ -1,0 +1,16 @@
+.header-container {
+  text-align: center;
+  background: #5075c8;
+}
+.header-container a {
+  margin-top: 15%;
+}
+.main-line {
+  text-align: center;
+  background-img: url("images/ablue.jpg");
+}
+@media (max-width: 550px) {
+  .header-container a {
+    margin-top: 0;
+  }
+}
