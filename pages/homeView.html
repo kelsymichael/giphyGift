@@ -22,16 +22,23 @@
 	</div>		
 					
 	<p>test paragraph</p>
+
+<!-- 	<div ng-repeat="gif in dataset"></div> -->
 	<!-- <img class='giphy' ng-src ='{{ giph.data.images.fixed_height.url }}' /> -->
-	
+	<img class='giphy' ng-src ='{{giph}}' />
+
+
 <div class="container">
 	<div class="row">		
 	<!-- <img ng-src='{{ cats }}' /> -->
-		<input class='u-full-width' type="text" ng-model='example.text' placeholder='type here'>
-	</div>		
+	<form ng-submit="searchGiphy(uInput)">
+		<input class='u-full-width' type="text"  ng-model='uInput' placeholder='type here'>
+		<button ng-click='saveGiphy()'>save giph</button>
+	</form>
+	</div>
 </div>
 
-</div>
+<!-- </div>
 			http://media.giphy.com/media/wdh1SvEn0E06I/giphy.gif
-</div>
+</div> -->
 

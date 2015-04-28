@@ -22,41 +22,66 @@ app
 
 
 app 
-	.controller('mainCtrl', function($scope, $http){
+	.controller('mainCtrl', function($scope, $http, giphyService){
 		$scope.date = new Date();
+		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	    $scope.day = dayNames[new Date().getDay()];		
 		
-		var config = {headers: {
-			'X-Mashape-Key' : 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-			'Accept' : 'text/plain'
-		}};
-		$http.get('https://montanaflynn-cat-overflow.p.mashape.com/?limit=1', config)
-				.success(function(response){
-					$scope.cats = response;
-				});
+		var giphyArr = [];
+	
+		$scope.searchGiphy = function(uInput){
+			$scope.urlInput = uInput;
 
+			giphyService.getGiphy(uInput).then(function(response){
+				console.log(response);
+				var ranNumber = Math.floor(Math.random() * (25 +1 ));
+
+				$scope.giph = response[ranNumber].images.fixed_height.url;
+				console.log(response[ranNumber].images.fixed_height.url);
+			});
+
+			ranNumber = '';
+
+			console.log(uInput);
+			$scope.uInput = '';
+			console.log($scope.urlInput);
+		};
+
+
+
+
+	// this.getGiphy = function(uInput){
+	// 	$http.get('https://giphy.p.mashape.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + uInput, config1)
+	// 		.success(function(data){
+	// 			$scope.giph = data;
+	// 		});
+
+});
+
+app
+	.service('giphyService', function($http, $q){
+		
 		var config1 = {headers: {
 			'X-Mashape-Key' : 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-			'Accept' : 'application/json'
+			'Accept' : 'application/json',
+			'limit' : '2'
 		}};	
 
-		$http.get('https://giphy.p.mashape.com/v1/gifs/translate?api_key=dc6zaTOxFJmzC&s=superman', config1)
-			.success(function(data){
-				$scope.giph = data;
-			});
+		this.getGiphy = function(uInput){
+			var deferred = $q.defer();
+			$http.get('https://giphy.p.mashape.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + uInput, config1)
+				.then(function(response){
+					deferred.resolve(response.data.data);
+				});
 
-		$scope.example = {
-			text: ''
+				return deferred.promise;
+			// .success(function(data){
+
+			// });
 		};
-		$http.get('https://giphy.p.mashape.com/v1/gifs/translate?api_key=dc6zaTOxFJmzC&s=' + $scope.example.text, config1)
-			.success(function(data1){
-				$scope.giphy = data1;
-			});
+	});
 
-		 var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
-                "Thursday", "Friday", "Saturday"];
-            $scope.day = dayNames[new Date().getDay()];		
-		
-		});
+
 		
 
 
