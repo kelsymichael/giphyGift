@@ -17,12 +17,12 @@ app
 	      .otherwise({
 					redirectTo: '/'
 				});
-		});
+	});
 
-var app = angular.module('uTemp');
+
 
 app 
-	.controller('mainCtrl', function($scope, $http, apiWeather){
+	.controller('mainCtrl', function($scope, $http){
 		$scope.date = new Date();
 		
 		var config = {headers: {
@@ -51,51 +51,14 @@ app
 			.success(function(data1){
 				$scope.giphy = data1;
 			});
-		
-
-		$scope.getWeather = function(){
-			apiWeather.getData().then(function(results){
-				$scope.weatherHigh = results;
-			});
-
-		};
 
 		 var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
                 "Thursday", "Friday", "Saturday"];
             $scope.day = dayNames[new Date().getDay()];		
+		
 		});
-
-app 
-	.service('apiWeather', function($http, $q){
-		this.getData = function(){
-			var deferred = $q.defer();	
-				$http({
-				method: 'GET',
-				url: 'https://george-vustrey-weather.p.mashape.com/api.php?location=Los+Angeles',
-				headers: {
-					'X-Mashape-Key': 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-					'Accept': 'application/json'
-				}
-				}).then(function(data){
-					var results = data;
-					console.log(results);
-					deffered.resolve(results);
-				});
-				return deferred.promise;
-		};	
- 	});	
+		
 
 
-app 
-	.service('apiCats', function($http){
-		this.getCats = function(){
-			 $http({
-				method: 'GET',
-				url: 'https://montanaflynn-cat-overflow.p.mashape.com/?limit=10&offset=1',
-				headers: {
-					'X-Mashape-Key': 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-					'Accept': 'text/plain'
-				}
-				});
-		};	
- 	});	
+
+
