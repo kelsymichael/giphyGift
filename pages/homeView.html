@@ -15,29 +15,47 @@
 	    <div class="row">
 	        <div class="u-full-width">
 	            <!--  <h3> {{ nameToday }}</h3> -->
-	            <h3 class='home-slogan'>search giphy</h3>
-	            <h3>save the good ones</h3>
 	        </div>
 	    </div>
 	</div>		
-					
-	<p>test paragraph</p>
 
-<!-- 	<div ng-repeat="gif in dataset"></div> -->
-	<!-- <img class='giphy' ng-src ='{{ giph.data.images.fixed_height.url }}' /> -->
-	<img class='giphy' ng-src ='{{giph}}' />
 
 
 <div class="container">
 	<div class="row">		
 	<!-- <img ng-src='{{ cats }}' /> -->
 	<form ng-submit="searchGiphy(uInput)">
-		<input class='u-full-width' type="text"  ng-model='uInput' placeholder='type here'>
-		<button ng-click='saveGiphy()'>save giph</button>
+		<input class='u-full-width' type="text"  ng-model='uInput' placeholder='search giphy'>		
 	</form>
+
+	<img class='giphy' ng-src ='{{giph}}' />
+		<div ng-hide="!giph">
+			<h6>embed url: {{giph}} </h6>
+		</div>
+	<br>
+
+	<div class="row">
+		<!-- <div ng-hide='!giph'> -->
+			<button class='button-primary' ng-click='saveGiphy()'>save giph</button>
+			<button ng-click='refreshImg()'>refresh giph</button>
+		<!-- </div> -->
 	</div>
+
+	<div class='saved-giphS'>
+		<!-- <img ng-src='{{giphyArr[0]}}' /> -->
+		<img ng-src='{{giphyObj.pic}}' />
+		<h6>embed url: {{giphyObj.url}}</h6>
+	</div>
+
+	<div ng-repeat='pic in collection track by giphyObj.pic'>
+		{{pic.pic}}
+	</div>
+
+</div>
 </div>
 
+
+</div>
 <!-- </div>
 			http://media.giphy.com/media/wdh1SvEn0E06I/giphy.gif
 </div> -->
