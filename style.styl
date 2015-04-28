@@ -1,13 +1,26 @@
-$blue = #5075C8
+$blue = #114A50
+$cream = #FFFACB
+$yellow = #FECB3E
+$orange = #D18D2A
+$red = #AD3526
 
-.header-container
-	text-align center
-	// background $blue
+$keyframe-name = pulse
+@keyframes {$keyframe-name}
+  for i in 0..10
+    {10% * i}
+      opacity (i/10)
 
-.header-container a 
+html
+	// background $cream
+
+.header-container a 	
 	margin-top 15%
 	text-decoration none
 	font-size 90px
+	transition 2s
+	&:hover
+		color $blue
+		transition 2s
 	
 .giphy 
 	text-align center
@@ -20,6 +33,4 @@ $blue = #5075C8
 // 	background-image url('../images/ablue.jpg')
 // 	background-size cover
 	
-@media (max-width: 550px)
-	.header-container a
-		margin-top 0
+
