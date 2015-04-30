@@ -4,6 +4,9 @@
 .pic {
   width: 150px;
 }
+.giphPick {
+  width: 500px;
+}
 .header-container a {
   text-align: center;
   font-family: 'Lobster', cursive;
@@ -16,6 +19,8 @@
 }
 .giphy {
   text-align: center;
+  height: 250px;
+  border: 0px;
 }
 .light-font {
   color: #114a50;
