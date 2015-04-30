@@ -1,4 +1,22 @@
-var app = angular.module('uTemp', [ 'ngRoute', 'firebase']);
+var app = angular.module('uTemp', [ 'ngRoute', 'firebase', 'ngClipboard']);
+
+
+ // app
+	 // 	.config(['ngClipProvider', function(ngClipProvider) {
+	 //    ngClipProvider.setPath("//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.6/ZeroClipboard.swf");
+	 //  }]);
+
+		// app
+		// 	.controller('myctrl', function ($scope) {
+	 //    $scope.fallback = function(copy) {
+	 //      window.prompt('Press cmd+c to copy the text below.', copy);
+	 //    };
+
+	 //    $scope.showMessage = function() {
+	 //      alert("giph");
+	 //    };
+	 //  });
+
 
 app
 		.config(function($routeProvider) {
@@ -27,12 +45,9 @@ app
 		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	    $scope.day = dayNames[new Date().getDay()];		
 		
-		// $scope.giphyArr = [];
-		$scope.giphyObj = [
-		{
-			pic: '',
-			url: ''
-		}];
+		$scope.giphyArr = [];
+		$scope.giphyArrUrl = [];
+		$scope.giphyObj = [];
 
 		$scope.searchGiphy = function(uInput){
 			$scope.urlInput = uInput;
@@ -44,18 +59,23 @@ app
 				$scope.giphS = response[ranNumber].images.fixed_height_still.url;
 				// console.log(response[ranNumber].images.fixed_height.url);
 			//refresh giph
-		
-
-
-
-
+		        
 			// save-giph button //	
 			$scope.saveGiphy = function(){
 				$scope.giphyArr.push($scope.giphS);
+				$scope.giphyArrUrl.push($scope.giph);
+
 				$scope.giphyObj.pic = $scope.giphS;
 				$scope.giphyObj.url = $scope.giph;
-				console.log($scope.giphyArr);
-				console.log($scope.giphyObj.pic);
+
+				var giphyObjSend = {
+					pic: $scope.giphS,
+					url: $scope.giph
+				};
+
+				$scope.giphyObj.push(giphyObjSend);
+				// console.log($scope.giphyArr);
+				console.log($scope.giphyObj);
 			};
 		});
 
