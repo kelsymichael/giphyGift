@@ -13,13 +13,16 @@
   margin-top: 15%;
   text-decoration: none;
   font-size: 65px;
+  -webkit-transition: 30s;
+          transition: 30s;
 }
 .header-container a:hover {
+  -webkit-transition: 30s;
+          transition: 30s;
   color: #114a50;
 }
 .giphy {
   text-align: center;
-  height: 250px;
   border: 0px;
 }
 .light-font {
