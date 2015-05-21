@@ -1,44 +1,26 @@
 var app = angular.module('uTemp', [ 'ngRoute', 'firebase', 'ngClipboard']);
 
-
- // app
-	 // 	.config(['ngClipProvider', function(ngClipProvider) {
-	 //    ngClipProvider.setPath("//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.6/ZeroClipboard.swf");
-	 //  }]);
-
-		// app
-		// 	.controller('myctrl', function ($scope) {
-	 //    $scope.fallback = function(copy) {
-	 //      window.prompt('Press cmd+c to copy the text below.', copy);
-	 //    };
-
-	 //    $scope.showMessage = function() {
-	 //      alert("giph");
-	 //    };
-	 //  });
-
-
+//config
 app
-		.config(function($routeProvider) {
-			$routeProvider
+	.config(function($routeProvider) {
+		$routeProvider
 
-			 	.when('/', {
-	          templateUrl : 'pages/homeView.html',
-	          controller  : 'mainCtrl'
-	      })
+		 	.when('/', {
+          templateUrl : 'pages/homeView.html',
+          controller  : 'mainCtrl'
+      })
 
-	      .when('/login', {
-	          templateUrl : 'pages/loginView.html',
-	          controller  : 'mainCtrl'
-	      })
+      .when('/login', {
+          templateUrl : 'pages/loginView.html',
+          controller  : 'mainCtrl'
+      })
 
-	      .otherwise({
-					redirectTo: '/'
-				});
+      .otherwise({
+				redirectTo: '/'
+			});
 	});
 
-
-
+//controller 
 app 
 	.controller('mainCtrl', function($scope, $http, giphyService){
 		$scope.date = new Date();
@@ -53,7 +35,7 @@ app
 			$scope.urlInput = uInput;
 			giphyService.getGiphy(uInput).then(function(response){
 				// console.log(response);
-				var ranNumber = Math.floor(Math.random() * (25 +1 ));
+				var ranNumber = Math.floor(Math.random() * (40 +1 ));
 				
 				$scope.giph = response[ranNumber].images.fixed_height.url;
 				$scope.giphS = response[ranNumber].images.fixed_height_still.url;
@@ -92,10 +74,8 @@ app
 		// 	giphyArr.push($scope.searchGiphy(uInput));
 		// 	console.log(giphyArr);
 		// };
+	}); /* end of controller */
 
-	
-
-}); /* end of controller */
 
 app
 	.service('giphyService', function($http, $q){
@@ -118,11 +98,23 @@ app
 				return deferred.promise;
 			// .success(function(data){
 		};
-
-	
-
 	}); /* end of service */
 
+ //cliboardAttempt -- not working -- app
+		 // 	.config(['ngClipProvider', function(ngClipProvider) {
+		 //    ngClipProvider.setPath("//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.6/ZeroClipboard.swf");
+		 //  }]);
+
+			// app
+			// 	.controller('myctrl', function ($scope) {
+		 //    $scope.fallback = function(copy) {
+		 //      window.prompt('Press cmd+c to copy the text below.', copy);
+		 //    };
+
+		 //    $scope.showMessage = function() {
+		 //      alert("giph");
+		 //    };
+		 //  });
 
 		
 
