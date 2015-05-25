@@ -1,4 +1,4 @@
-var app = angular.module('uTemp', [ 'ngRoute', 'firebase', 'ngClipboard']);
+var app = angular.module('giphyGift', [ 'ngRoute', 'firebase', 'ngClipboard']);
 
 //config
 app
