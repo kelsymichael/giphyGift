@@ -16,7 +16,7 @@ app
       })
 
       .otherwise({
-				redirectTo: '/'
+				redirectTo: 'giphygift/#/'
 			});
 	});
 
