@@ -1,80 +1,60 @@
-var app = angular.module('uTemp');
+var app = angular.module('giphyGift');
 
 app 
-	.controller('mainCtrl', function($scope, $http, apiWeather){
+	.controller('MainCtrl', function($scope, $http, giphyService, $firebaseArray){
 		$scope.date = new Date();
+		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	    $scope.day = dayNames[new Date().getDay()];		
 		
-		var config = {headers: {
-			'X-Mashape-Key' : 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-			'Accept' : 'text/plain'
-		}};
-		$http.get('https://montanaflynn-cat-overflow.p.mashape.com/?limit=1', config)
-				.success(function(response){
-					$scope.cats = response;
-				});
+		$scope.giphyArr = [];
+		$scope.giphyArrUrl = [];
+		$scope.giphyObj = [];
 
-		var config1 = {headers: {
-			'X-Mashape-Key' : 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-			'Accept' : 'application/json'
-		}};	
+		$scope.searchGiphy = function(uInput){
+			$scope.urlInput = uInput;
+			giphyService.getGiphy(uInput).then(function(response){
+				console.log(response);
+				var ranNumber = Math.floor(Math.random() * (40 +1 ));
+				
+				$scope.giph = response[ranNumber].images.fixed_height.url;
+				$scope.giphS = response[ranNumber].images.fixed_height_still.url;
+		        
+			// save-giph button //	
+		$scope.saveGiphy = function(){
+			$scope.giphyArr.push($scope.giphS);
+			$scope.giphyArrUrl.push($scope.giph);
 
-		$http.get('https://giphy.p.mashape.com/v1/gifs/translate?api_key=dc6zaTOxFJmzC&s=superman', config1)
-			.success(function(data){
-				$scope.giph = data;
+			$scope.giphyObj.pic = $scope.giphS;
+			$scope.giphyObj.url = $scope.giph;
+
+			var giphyObjSend = {
+				pic: $scope.giphS,
+				url: $scope.giph
+			};
+
+			$scope.giphyObj.push(giphyObjSend);
+			// console.log($scope.giphyArr);
+			console.log($scope.giphyObj);
+				};
 			});
+		}; /* end of searchGiphy */
 
-		$scope.example = {
-			text: ''
-		};
-		$http.get('https://giphy.p.mashape.com/v1/gifs/translate?api_key=dc6zaTOxFJmzC&s=' + $scope.example.text, config1)
-			.success(function(data1){
-				$scope.giphy = data1;
-			});
-		
+		// $scope.saveGiphy = function(){
+		// 	giphyArr.push($scope.searchGiphy(uInput));
+		// 	console.log(giphyArr);
+		// };
 
-		$scope.getWeather = function(){
-			apiWeather.getData().then(function(results){
-				$scope.weatherHigh = results;
-			});
+							// var ref = new Firebase("https://giphygift.firebaseio.com/savedGif");
+							
+							// $scope.savedGif = $firebaseArray(ref);
 
-		};
+							// $scope.addGif = function(){
+							// 	$scope.savedGif.$add({
 
-		 var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
-                "Thursday", "Friday", "Saturday"];
-            $scope.day = dayNames[new Date().getDay()];		
-		});
+							// 	})
+							// }
 
-app 
-	.service('apiWeather', function($http, $q){
-		this.getData = function(){
-			var deferred = $q.defer();	
-				$http({
-				method: 'GET',
-				url: 'https://george-vustrey-weather.p.mashape.com/api.php?location=Los+Angeles',
-				headers: {
-					'X-Mashape-Key': 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-					'Accept': 'application/json'
-				}
-				}).then(function(data){
-					var results = data;
-					console.log(results);
-					deffered.resolve(results);
-				});
-				return deferred.promise;
-		};	
- 	});	
+							// 	$scope.data = $firebaseObject(ref);
+							//  	syncObject.$bindTo($scope, "saveGiphy");
 
-
-app 
-	.service('apiCats', function($http){
-		this.getCats = function(){
-			 $http({
-				method: 'GET',
-				url: 'https://montanaflynn-cat-overflow.p.mashape.com/?limit=10&offset=1',
-				headers: {
-					'X-Mashape-Key': 'Vt18ObzVHymshu7BgkVs9OW36RWnp1J9Z5EjsnaqZM34gYbp3a',
-					'Accept': 'text/plain'
-				}
-				});
-		};	
- 	});	
+	}); /* end of controller */

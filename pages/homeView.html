@@ -1,6 +1,4 @@
-
-
-<nav class='nav login-hide'>
+<nav class='nav'>
     <div class='u-pull-right'>
         <a class='button' href='#/login'>login</a>
     </div>
@@ -10,24 +8,16 @@
 	<div class="row">
 		<div class="offset-by-two eight columns">
 			<div class="6 columns">
-				<h3>Welcome</h3>
+				<h2>Welcome</h2>
 				<h5>Today is {{ day }} {{ date | date:'MMMM-dd-yyyy'}} </h5>
 			</div>	
 		</div>	
 	</div>	
 </div>
   
-<!-- 	<div class='container'>
-	    <div class="row">
-	        <div class="u-full-width">
-	            <!--  <h3> {{ nameToday }}</h3> 
-	        </div>
-	    </div> -->
-
 <div class="container">
 
 	<div class="row">		
-	<!-- <img ng-src='{{ cats }}' /> -->
 			<div class='offset-by-two eight columns'>
 				<form ng-submit="searchGiphy(uInput)">
 					<input class='2 columns' type="text"  ng-model='uInput' placeholder='search giphy - press enter to refresh'>		
@@ -50,7 +40,7 @@
 	<div class="row">
 		<div class='offset-by-two eight columns'>
 			<div ng-hide='!giph'>
-				<button class='button-primary 2 columns' ng-click='saveGiphy()'>hold gif</button>
+				<button class='button-primary 2 columns' ng-click='saveGiphy()' ng-submit="addGif()" type='submit'>hold gif</button>
 				<!-- <button ng-click='refresh()'>refresh giph</button> -->
 			</div>
 		</div>
@@ -61,7 +51,7 @@
 			<div class='saved-giphS'>
 			<!-- <img ng-src='{{giphyArr[0]}}' /> -->
 				<div class='saved-background'>
-    			<div ng-animate=" 'animate '" ng-repeat="x in giphyObj track by $index">
+    			<div ng-animate=" 'animate ' " ng-repeat="x in giphyObj track by $index">
         		<img ng-src='{{x.pic}}' class='pic'/>
         		<h6 class='url'>{{x.url}}</h6>
     			</div>
@@ -70,38 +60,3 @@
 			</div>
 		</div>	
 	</div>
-
-
-	
-
-
-
-
-<!-- 	<div ng-hide='!giph'>
-
-		<div ng-controller="myctrl"> -->
-			<!-- <div class="form-group"> -->
-		        <!-- <label >Copy #3 with with clip-click</label> -->
-		    <!--     <input type="text" class="form-control" placeholder="Enter text to copy" ng-model="copyGiph"> -->
-		      
-		  <!-- </div> -->
-		<!--   /* below is working / uncomment */ -->
-		      <!-- <button class="btn btn-default" clip-copy="copyGiph1" clip-click="showMessage()">Copy!</button>
-		      <h6 ng-model="copyGiph1" autofocus>{{giphyObj.url}}</h6>
-			</div> -->
-
-
-
-	<!-- <h6 ng-model="copyGiph">{{giphyObj.url}}</h6> -->
-	<!-- </div>  --><!-- end of !giph -->
-
-
-	<!-- <div ng-repeat='pic in collection track by giphyObj.pic'>
-		{{pic.pic}}
-	</div> -->
-
-	
-<!-- </div>
-			http://media.giphy.com/media/wdh1SvEn0E06I/giphy.gif
-</div> -->
-

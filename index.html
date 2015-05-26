@@ -11,7 +11,7 @@
 	  <!-- FONT
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-	<!-- CSS
+<!-- CSS
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <link rel="stylesheet" href="css/normalize.css">
 	  <link rel="stylesheet" href="css/skeleton.css">
@@ -22,7 +22,7 @@
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
 
-	<!-- load angular and angular route via CDN -->
+<!-- load angular and angular route via CDN -->
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
@@ -31,10 +31,9 @@
 	  <!-- AngularFire -->
 	  <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
 
-	  <script src="//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.6/ZeroClipboard.min.js"></script>
-  <script src="//rawgit.com/asafdav/ng-clip/master/src/ngClip.js"></script>
-
+<!-- my scripts -->
 	  <script src="app.js"></script>
+	  <script src="MainCtrl.js"></script>
 	</head>
 <body>
 <!-- shared html -->
@@ -49,13 +48,13 @@
 </header>
 				
 <!-- start of angular views -->
-
+<div class="container">
 <div ng-view></div>
-
-<div ng-controller='mainCtrl'>
-	<input type="text" ng-model='data.text' />
-	<h1>you said: {{ data.text }} </h1>
 </div>
+<!-- 3-waydataBindTest -->
+		<input type="text" ng-model='data.text' />
+		<h1>you said: {{ data.text }} </h1>
+
 
 <!-- google analytics -->
 <script>
