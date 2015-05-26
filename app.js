@@ -1,4 +1,4 @@
-var app = angular.module('giphyGift', [ 'ngRoute', 'firebase', 'ngClipboard']);
+var app = angular.module('giphyGift', [ 'ngRoute', 'firebase']);
 
 //config
 app
@@ -22,7 +22,7 @@ app
 
 //controller 
 app 
-	.controller('mainCtrl', function($scope, $http, giphyService){
+	.controller('mainCtrl', function($scope, $http, giphyService, $firebaseObject){
 		$scope.date = new Date();
 		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	    $scope.day = dayNames[new Date().getDay()];		
@@ -74,6 +74,14 @@ app
 		// 	giphyArr.push($scope.searchGiphy(uInput));
 		// 	console.log(giphyArr);
 		// };
+
+		var ref = new Firebase("https://giphygift.firebaseio.com");
+		var syncObject = $firebaseObject(ref);
+			$scope.data = $firebaseObject(ref);
+		 	syncObject.$bindTo($scope, "data");
+
+
+
 	}); /* end of controller */
 
 // app.controller('Auth', function($scope, Auth){
