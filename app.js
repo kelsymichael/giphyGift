@@ -76,6 +76,11 @@ app
 		// };
 	}); /* end of controller */
 
+// app.controller('Auth', function($scope, Auth){
+// 	$scope.loginGoogle = function(){
+// 		ref.authWithOAuthPopup();
+// });
+
 
 app
 	.service('giphyService', function($http, $q){
@@ -99,6 +104,25 @@ app
 			// .success(function(data){
 		};
 	}); /* end of service */
+
+
+
+
+
+
+
+app.factory('Auth', function(FURL, $firebaseAuth, $firebase){
+		var ref = new Firebase("https://giphygift.firebaseio.com");
+			ref.authWithOAuthPopup("google", function(error, authData) {
+			  if (error) {
+			    console.log("Login Failed!", error);
+			  } else {
+			    console.log("Authenticated successfully with payload:", authData);
+			  }
+	});
+})
+
+
 
  //cliboardAttempt -- not working -- app
 		 // 	.config(['ngClipProvider', function(ngClipProvider) {
