@@ -33,29 +33,23 @@
 	  <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
 
 <!-- my scripts -->
-	  <script src="app.js"></script>
-	  <script src="MainCtrl.js"></script>
+	  <script src="scripts/app.js"></script>
+    <script src="scripts/login-register/authService.js"></script>
+    <script src="scripts/menu/menu.js"></script>
+    <script src="scripts/login-register/social-buttons/socialMenu.js"></script>
+    <script src="scripts/home/HomeCtrl.js"></script>
+    <script src="scripts/login-register/login-logout/LoginCtrl.js"></script>
+    <script src="scripts/login-register/registration/RegisterCtrl.js"></script>
+    <script src="scripts/login-register/SecureCtrl.js"></script>
+    <script src="scripts/secure/DashboardCtrl.js"></script>
 	</head>
 <body>
-<!-- shared html -->
-<header>
-		<div class="container header-container">
-			<div class="row">
-				<div class="offset-by-two eight columns">
-					<h1><a href='/'>Giphy Gift</a></h1>
-				</div>
-			</div>
-		</div>
-</header>
-				
 <!-- start of angular views -->
-<div class="container">
-<div ng-view></div>
-</div>
-<!-- 3-waydataBindTest -->
-<!-- 		<input type="text" ng-model='data.text' />
-		<h1>you said: {{ data.text }} </h1> -->
 
+<div class="container">
+	<menu></menu>
+	<div ui-view></div>
+</div>
 
 <!-- google analytics -->
 <script>
@@ -66,7 +60,6 @@
 
   ga('create', 'UA-63337379-1', 'auto');
   ga('send', 'pageview');
-
 </script>
 
 <!-- End Document

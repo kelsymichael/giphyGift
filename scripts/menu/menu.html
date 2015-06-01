@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div class="row">
+      <div class="header-container">
+        <a ui-sref="home"> Giphy Gift</a>
+      </div>
+  </div>
+
+  <!--   <div class="u-pull-right"> -->
+      <ul class='row u-pull-right navbar-list'>
+           <!--  <li class='navbar-item'><a ui-sref="home" class='navbar-link'> Home </a></li> -->
+       <!--      <li class='navbar-item'> <a ui-sref="secure.dashboard"  class='navbar-link' ng-show='!user'> Dashboard </a> </li> -->
+            <li class='navbar-item' ng-show="!user"><a ui-sref="register" class='navbar-link'> Register </a></li>
+            <li class='navbar-item'ng-show="!user"><a ui-sref="login" class='navbar-link'> Login </a></li>
+            <li class='navbar-item' ng-show="user"><a  ui-sref="logout" class='navbar-link'> Logout </a></li>
+      </ul>
+    <!-- </div> -->
+
+
+</div>
