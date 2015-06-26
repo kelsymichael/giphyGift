@@ -7,7 +7,6 @@
  </div>
 
 
-
   <div class="row">
   <div class="offset-by-two eight columns">
 
@@ -15,18 +14,24 @@
            <!--  <li class='navbar-item'><a ui-sref="home" class='navbar-link'> Home </a></li> -->
        <!--      <li class='navbar-item'> <a ui-sref="secure.dashboard"  class='navbar-link' ng-show='!user'> Dashboard </a> </li> -->
       
-       <li ng-show="!user">
+         <li ng-show="!currentUser">
           <a ui-sref="login" class='navbar-link button button-primary'> Login </a>
         </li>
 
 
-        <li ng-show="!user">
+        <li ng-show="!currentUser">
           <a ui-sref="register"class='navbar-link button button-register' > Register </a>
         </li>
        
-        <li ng-show="user">
+        <li ng-show="currentUser">
           <a  ui-sref="logout" class='navbar-link button button-primary'> Logout </a>
         </li>
+        
+   <!--     <li ng-controller="DashboardCtrl" >
+          <a  ui-sref="saved" class='navbar-link button button-register' ng-click="loadSavedGifArray()"> Saved </a>
+        </li>
+        -->
+       
       </ul>
      
   </div>
