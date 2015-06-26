@@ -11,17 +11,25 @@
    <div class="row">
         <div class="offset-by-two ten columns">
           <div class="ten columns">
-            <form ng-submit='login()'>
+            <form name="loginForm" ng-submit="login()">
               <div class="form-group">
-              <input class='u-full-width' type="text" ng-model='user.email' placeholder='email'>
+              <input name="email" class='u-full-width' type="email" ng-model='user.email' placeholder="email" ng-required="true">
               </div>
+              <!--ADDING EMAIL ERROR MESSAGE-->
+              <p class="validationerror" ng-show="loginForm.email.$invalid && loginForm.email.$touched">
+              	Must be a valid email address
+              </p>
               <div class="form-group">
-                <input type="password" ng-model='user.pw' class='u-full-width' placeholder='password'>
+                <input name="password" type="password" ng-model='user.pw' class='u-full-width' placeholder='password' ng-required="true">
+                <!--ADDING PW ERROR MESSAGE-->
+                <p class="validationerror" ng-show="loginForm.password.$invalid && loginForm.password.$touched">
+                	Must enter a password
+                </p>
               </div> 
               
             
               <div class="form-group">
-                <button class='button-primary u-full-width' type='submit' ng-click="inputUser()">submit</button>
+                <button class='button-primary u-full-width' type='submit' ng-click="login()" ng-disabled="loginForm.$invalid">Welcome!</button>
               
               
                 <social page='Login'></social>

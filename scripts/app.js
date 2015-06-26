@@ -5,28 +5,47 @@ app.constant('FBURL', 'https://giphygift.firebaseio.com');
 
 app
 	.config(function($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.when('', '/');
-		$urlRouterProvider.otherwise('/login');
+		$urlRouterProvider.when('', '/', '/#/', {
+			templateUrl : 'scripts/login-register/login-logout/login.html',
+			controller : "LoginCtrl"
+		}) 
+														
+/*		.when('/dashboard', {
+			templateUrl: 'scripts/secure/dashboard.html',
+			controller : 'DashboardCtrl'
+		})*/
+		$urlRouterProvider.otherwise('/dashboard');
 		$stateProvider
 		 	.state('home', {
 		 			url: '/',
-          templateUrl : 'scripts/home/homeView.html',
-          controller  : 'HomeCtrl'
+					templateUrl: 'scripts/login-register/login-logout/login.html',
+          controller  : 'LoginCtrl'
       })
+	/*		.state('saved', {
+					url : '/saved',
+					templateUrl : 'scripts/saved/saved.html',
+					controller : 'DashboardCtrl',
+					resolve : {
+						loadSaved : function(DashboardCtrl) {
+							DashboardCtrl.loadSavedGifArray();
+						}
+					}
+		})*/
       .state('login', {
       		url: '/login',
           templateUrl : 'scripts/login-register/login-logout/login.html',
           controller  : 'LoginCtrl'
       })
+				/*CHANGED THE URL AND TEMPLATE URL FOR LOGOUT STATE*/
       .state('logout', {
-      url: '/logout',
-      templateUrl: 'scripts/login-register/login-logout/logout.html',
+      url: '/login',
+      templateUrl: 'scripts/login-register/login-logout/login.html',
       controller: 'LoginCtrl',
       resolve: {
         logout: function(authService){
           authService.logout();
         }
-      }
+			}
     })
     .state('register', {
       url: '/register',

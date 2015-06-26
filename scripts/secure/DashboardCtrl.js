@@ -1,7 +1,7 @@
 var app = angular.module('giphyGift');
 
 app 
-	.controller('DashboardCtrl', function($scope, $http, giphyService, $firebaseArray){
+	.controller('DashboardCtrl', function($scope, $http, giphyService, FBURL, $firebaseArray, $rootScope){
 		$scope.date = new Date();
 		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	    $scope.day = dayNames[new Date().getDay()];		
@@ -26,12 +26,22 @@ app
 
 			$scope.giphyObj.pic = $scope.giphS;
 			$scope.giphyObj.url = $scope.giph;
+			
 
 			var giphyObjSend = {
 				pic: $scope.giphS,
 				url: $scope.giph
 			};
+			
+			
+			var savedGifArrayRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.regUser + '/saved');
+			var savedGifArray = $firebaseArray(savedGifArrayRef);
+			savedGifArray.$add(giphyObjSend);
 
+				$scope.savedGifArray = (savedGifArray);
+
+		
+			
 			$scope.giphyObj.push(giphyObjSend);
 			// console.log($scope.giphyArr);
 			console.log($scope.giphyObj);

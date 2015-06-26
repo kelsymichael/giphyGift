@@ -1,0 +1,19 @@
+<div ng-controller="DashboardCtrl" class="container">
+	<h2>Hello, {{currentUser.firstName}}!  </h2>
+
+<div class="row">
+		<div class='offset-by-two eight columns'>
+			<div class='saved-giphS'>
+			<!-- <img ng-src='{{giphyArr[0]}}' /> -->
+				<div class='saved-background'>
+    			<div ng-animate=" 'animate ' " ng-repeat="pic in savedGifArray">
+        		<img ng-src='{{pic.pic}}' class='pic'/>
+        		<h6 class='url'>{{pic.url}}</h6>
+    			</div>
+			</div>
+
+			</div>
+		</div>	
+	</div>
+</div>
+

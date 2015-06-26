@@ -9,16 +9,38 @@
     <div class="row">
         <div class="offset-by-two ten columns">
             <div class="ten columns">
-                <form ng-submit='register()'>
-                    <div class="form-group">
-                        <input class='u-full-width form-control' type="text" ng-model='user.email' placeholder='email'>
+                <form name="regiForm" ng-submit='register()'>
+                <!--RETURNS LOGIN ERROR FROM FB-->
+            <p class="error formerror" ng-show(message)> {{message}} </p>
+                      <div class="form-group">
+                        <input name="firstName" class='u-full-width form-control' type="text" ng-model='user.firstName' placeholder='First Name' ng-required="true">
                     </div>
-                    <div class="form-group">
-                        <input type="password" ng-model='user.pw' class='u-full-width form-control' placeholder='password'>
+                    <p class="validationerror" ng-show="regiForm.firstName.$invalid && regiForm.firstName.$touched">
+                    	Please enter your first name
+                    </p>
+                          
+                           <div class="form-group">
+                        <input name="lastName" class='u-full-width form-control' type="text" ng-model='user.lastName' placeholder='Last Name' ng-required="true">
                     </div>
-                   
+                       <p class="validationerror" ng-show="regiForm.lastName.$invalid && regiForm.lastName.$touched">
+                    	Please enter your last name
+                    </p>
+                      
+                       <div class="form-group">
+                        <input name="email" class='u-full-width form-control' type="email" ng-model='user.email' placeholder='Email' ng-required="true">
+                    </div>
+                       <p class="validationerror" ng-show="regiForm.email.$invalid && regiForm.email.$touched">
+                    	Please enter a valid email
+                    </p>
+                    	
+                    <div class="form-group">
+                        <input name="password" type="password" ng-model='user.pw' class='u-full-width form-control' placeholder='Password' ng-required="true">
+                    </div>
+  <p class="validationerror" ng-show="regiForm.password.$invalid && regiForm.password.$touched">
+                    	Please enter your password
+                    </p>
                         
-                            <button class='button-primary u-full-width' type='submit'>Register</button>
+                            <button ng-disabled="regiForm.$invalid" class='button-primary u-full-width' type='submit'>Register</button>
                             <social page='Register'></social>
                         
                  
