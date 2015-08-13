@@ -1,7 +1,7 @@
 var app = angular.module('giphyGift');
 
 app 
-	.controller('MainCtrl', function($scope, $http, giphyService, $firebaseArray){
+	.controller('HomeCtrl', function($scope, $http, giphyService, $firebaseArray){
 		$scope.date = new Date();
 		var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	    $scope.day = dayNames[new Date().getDay()];		
@@ -39,22 +39,4 @@ app
 			});
 		}; /* end of searchGiphy */
 
-		// $scope.saveGiphy = function(){
-		// 	giphyArr.push($scope.searchGiphy(uInput));
-		// 	console.log(giphyArr);
-		// };
-
-							// var ref = new Firebase("https://giphygift.firebaseio.com/savedGif");
-							
-							// $scope.savedGif = $firebaseArray(ref);
-
-							// $scope.addGif = function(){
-							// 	$scope.savedGif.$add({
-
-							// 	})
-							// }
-
-							// 	$scope.data = $firebaseObject(ref);
-							//  	syncObject.$bindTo($scope, "saveGiphy");
-
-	}); /* end of controller */
+}); /* end of controller */

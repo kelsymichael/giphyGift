@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='uTemp'>
+<html lang="en" ng-app='giphyGift'>
 	<head>
 	  <!-- Basic Page Needs
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <meta charset="utf-8">
-	  <title>uTemp</title>
+	  <title>giphygift</title>
 	  <!-- Mobile Specific Metas
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <!-- FONT
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-	<!-- CSS
+<!-- CSS
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <link rel="stylesheet" href="css/normalize.css">
 	  <link rel="stylesheet" href="css/skeleton.css">
@@ -22,35 +22,50 @@
 	  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
 
-	<!-- load angular and angular route via CDN -->
-	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+<!-- load angular and angular route via CDN -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+	  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js'></script>
+	  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script> -->
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
 	  <!-- Firebase -->
-	  <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+	  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 	  <!-- AngularFire -->
-	  <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+	  <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
 
-	  <script src="//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.6/ZeroClipboard.min.js"></script>
-  <script src="//rawgit.com/asafdav/ng-clip/master/src/ngClip.js"></script>
-
-	  <script src="app.js"></script>
+<!-- my scripts -->
+	  <script src="scripts/app.js"></script>
+    <script src="scripts/login-register/authService.js"></script>
+    <script src="scripts/menu/menu.js"></script>
+    <script src="scripts/login-register/social-buttons/socialMenu.js"></script>
+    <script src="scripts/home/HomeCtrl.js"></script>
+    <script src="scripts/login-register/login-logout/LoginCtrl.js"></script>
+    <script src="scripts/login-register/registration/RegisterCtrl.js"></script>
+    <script src="scripts/login-register/SecureCtrl.js"></script>
+    <script src="scripts/secure/DashboardCtrl.js"></script>
 	</head>
 <body>
-<!-- shared html -->
-<header>
-		<div class="container header-container">
-			<div class="row">
-				<div class="offset-by-two eight columns">
-					<h1><a href='/'>Giphy Gift</a></h1>
-				</div>
-			</div>
-		</div>
-</header>
-				
 <!-- start of angular views -->
 
-<div ng-view></div>
+
+  <!-- <div class="row">
+      <div class="header-container offset-by-two eight columns">
+        <a ui-sref="home"> Giphy Gift</a>
+      </div>
+ </div> -->
+	<menu></menu>
+	<div ui-view></div>
+
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63337379-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
