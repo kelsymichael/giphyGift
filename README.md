@@ -4,3 +4,6 @@
  - show current giphy trends
  - search giphy from user input
  - save and display liked gifs
+
+TODO //
+- ANGULAR 2
