@@ -6,4 +6,4 @@
  - save and display liked gifs
 
 TODO //
-- ANGULAR 2
+- SWITCH TO REACT
